@@ -1,5 +1,5 @@
 const Shoes = (props) => {
-  const { product, getProduct } = props;
+  const { product, getProduct , handleAddToCart } = props;
 
   const handleShoesDetails = (product) => {
     getProduct(product);
@@ -19,8 +19,13 @@ const Shoes = (props) => {
         ${product.price}
       </p>
       <div className="mt-4 flex flex-col gap-2">
-        <button className="w-full bg-black text-white py-2 rounded text-sm hover:bg-gray-700">
-          Add to cart 
+        <button
+          onClick={() => {
+            handleAddToCart(product);
+          }}
+          className="w-full bg-black text-white py-2 rounded text-sm hover:bg-gray-700"
+        >
+          Add to cart
         </button>
         <button
           onClick={() => handleShoesDetails(product)}
